@@ -17,9 +17,6 @@ class _TasksScreenState extends State<TasksScreen> {
     const CompleteTaskScreen(),
     const InCompleteTasksScreen(),
   ];
-  // final controller = PageController(
-  //   initialPage: 0,
-  // );
 
   @override
   Widget build(BuildContext context) {
