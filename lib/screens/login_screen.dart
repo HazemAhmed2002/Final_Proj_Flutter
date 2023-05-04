@@ -77,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: TextButton(
                     onPressed: () {
                       Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (context) => const RegisterScreen(),
+                        builder: (context) =>  RegisterScreen(),
                       ));                    },
                     child: const Text('إنشاء حساب')),
               ),
