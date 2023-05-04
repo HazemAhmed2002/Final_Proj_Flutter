@@ -4,17 +4,17 @@ import 'package:todaydo_app/screens/tasks_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp( const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) => TaskData(),
-      child: MaterialApp(
+      child:  MaterialApp(
         debugShowCheckedModeBanner: false,
         home: TasksScreen(),
       ),

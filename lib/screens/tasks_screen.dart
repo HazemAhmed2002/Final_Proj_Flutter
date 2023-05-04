@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:todaydo_app/screens/login_screen.dart';
 import 'package:todaydo_app/screens/pageView/all_task_screen.dart';
 import 'package:todaydo_app/screens/pageView/complete_task.dart';
 import 'package:todaydo_app/screens/pageView/incomplete_tasks.dart';
+import 'package:todaydo_app/screens/settings_screen.dart';
+import 'package:todaydo_app/widgets/list_tile_drawer.dart';
 import 'add_task_screen.dart';
 
 class TasksScreen extends StatefulWidget {
@@ -47,75 +50,27 @@ class _TasksScreenState extends State<TasksScreen> {
                 ),
                 accountName: const Text("Hazem"),
                 accountEmail: const Text("ahmedhazeml734@gmail.com")),
-            ListTile(
-              onTap: () {
-                Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  builder: (context) => TasksScreen(),
-                ));
-              },
-              title: const Text(
-                "Profile",
-                style: TextStyle(fontSize: 20),
-              ),
-              subtitle: const Text("Go to the profile page"),
-              leading: const Icon(Icons.person),
-              trailing: const Icon(Icons.arrow_forward_ios),
-              textColor: Colors.white,
-              iconColor: Colors.white,
-            ),
-            ListTile(
-              onTap: () {},
-              title: const Text(
-                "Home Page",
-                style: TextStyle(fontSize: 20),
-              ),
-              subtitle: const Text("Go to the settings page"),
-              leading: const Icon(Icons.home),
-              trailing: const Icon(Icons.arrow_forward_ios),
-              textColor: Colors.white,
-              iconColor: Colors.white,
-            ),
-            ListTile(
-              onTap: () {},
-              title: const Text(
-                "settings",
-                style: TextStyle(fontSize: 20),
-              ),
-              subtitle: const Text("Go to the settings page"),
-              leading: const Icon(Icons.settings),
-              trailing: const Icon(Icons.arrow_forward_ios),
-              textColor: Colors.white,
-              iconColor: Colors.white,
-            ),
-            ListTile(
-              onTap: () {},
-              title: const Text(
-                "settings",
-                style: TextStyle(fontSize: 20),
-              ),
-              subtitle: const Text("Go to the settings page"),
-              leading: const Icon(Icons.settings),
-              trailing: const Icon(Icons.arrow_forward_ios),
-              textColor: Colors.white,
-              iconColor: Colors.white,
-            ),
-            const SizedBox(
-              height: 300,
-            ),
-            ListTile(
-              onTap: () {},
-              title: const Text(
-                "logout",
-                style: TextStyle(
-                  fontSize: 17,
-                  fontWeight: FontWeight.bold,
-                ),
-                textAlign: TextAlign.right,
-              ),
-              trailing: const Icon(Icons.logout),
-              textColor: Colors.white,
-              iconColor: Colors.white,
-            ),
+            ListTileDrawer(nav: (){
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (context) =>  TasksScreen(),
+              ));
+            }, name: "Profile", icon: const Icon(Icons.person)),
+            ListTileDrawer(nav: (){
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (context) =>  TasksScreen(),
+              ));
+            }, name: "Home Page", icon: const Icon(Icons.home)),
+            ListTileDrawer(nav: (){
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (context) => const SettingsScreen(),
+              ));
+            }, name: "Settings", icon: const Icon(Icons.settings)),
+            ListTileDrawer(nav: (){
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (context) => const LoginScreen(),
+              ));
+            }, name: "LogOut", icon: const Icon(Icons.logout)),
+
           ],
         ),
       ),
@@ -172,3 +127,4 @@ class _TasksScreenState extends State<TasksScreen> {
     );
   }
 }
+
