@@ -158,12 +158,7 @@ class _TasksScreenState extends State<TasksScreen> {
                 child: Container(
                   padding: EdgeInsets.only(
                       bottom: MediaQuery.of(context).viewInsets.bottom),
-                  child: AddTasksScreen((newTaskTitle) {
-                    // setState(() {
-                    //   tasks.add(Task(name: newTaskTitle));
-                    //   Navigator.pop(context);
-                    // });
-                  }),
+                  child: AddTasksScreen((newTaskTitle) {}),
                 ),
               ),
             );
