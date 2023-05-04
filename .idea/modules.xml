@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/finalProject_flutter.iml" filepath="$PROJECT_DIR$/.idea/finalProject_flutter.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/Final_Proj_Flutter.iml" filepath="$PROJECT_DIR$/.idea/Final_Proj_Flutter.iml" />
+>>>>>>> 7dc70e0 (hesham)
     </modules>
   </component>
 </project>
