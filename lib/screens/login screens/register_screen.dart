@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:todaydo_app/screens/tasks_screen.dart';
 
-import '../widgets/textFieldWidget.dart';
+import '../../widgets/textFieldWidget.dart';
+
 
 class RegisterScreen extends StatelessWidget {
    RegisterScreen({Key? key}) : super(key: key);

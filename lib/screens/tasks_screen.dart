@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:todaydo_app/screens/login_screen.dart';
 import 'package:todaydo_app/screens/pageView/all_task_screen.dart';
 import 'package:todaydo_app/screens/pageView/complete_task.dart';
 import 'package:todaydo_app/screens/pageView/incomplete_tasks.dart';
-import 'package:todaydo_app/screens/settings_screen.dart';
+import 'package:todaydo_app/screens/login%20screens/settings_screen.dart';
 import 'package:todaydo_app/widgets/list_tile_drawer.dart';
 import 'add_task_screen.dart';
+import 'login screens/login_screen.dart';
 
 class TasksScreen extends StatefulWidget {
   @override
