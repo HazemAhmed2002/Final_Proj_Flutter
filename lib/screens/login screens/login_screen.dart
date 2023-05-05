@@ -4,9 +4,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todaydo_app/screens/register_screen.dart';
 import 'package:todaydo_app/screens/tasks_screen.dart';
 
-import '../Shared/shared_preferences.dart';
-import '../firebase/firebase_controller.dart';
-import '../models/user.dart';
+import '../../Shared/shared_preferences.dart';
+import '../../firebase/firebase_controller.dart';
+import '../../models/user.dart';
+
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
