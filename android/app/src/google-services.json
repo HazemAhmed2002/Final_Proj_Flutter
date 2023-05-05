@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "124218876203",
+    "project_id": "final-project-flutter-239ba",
+    "storage_bucket": "final-project-flutter-239ba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:124218876203:android:e0b77252d72e0146d2656e",
+        "android_client_info": {
+          "package_name": "com.example.todaydo_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "124218876203-im6b9ggrl16cg3o523ska0b2n9jl48sm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwMSitYkY9mb_rVLIDRXQoVtkGxKwfV7A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "124218876203-im6b9ggrl16cg3o523ska0b2n9jl48sm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

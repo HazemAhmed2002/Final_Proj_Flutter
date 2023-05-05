@@ -9,7 +9,7 @@ class TextFieldWidget extends StatelessWidget {
   }) : super(key: key);
   String hint;
   TextInputType tet;
-  TextEditingController? textEditingController;
+   TextEditingController? textEditingController;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +34,7 @@ class TextFieldWidget extends StatelessWidget {
               )
           )
       ),
+      controller: textEditingController,
     );
   }
 }

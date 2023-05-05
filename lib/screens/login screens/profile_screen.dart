@@ -17,6 +17,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   void initState() {
+    super.initState();
     _textEmailEditingController = TextEditingController();
     _textPasswordEditingController = TextEditingController();
     //  _textNameEditingController = TextEditingController();
@@ -24,6 +25,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   void dispose() {
+    super.dispose();
     _textEmailEditingController.dispose();
     _textPasswordEditingController.dispose();
     //   _textNameEditingController.dispose();

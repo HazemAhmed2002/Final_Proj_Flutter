@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:todaydo_app/screens/login%20screens/register_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:todaydo_app/screens/register_screen.dart';
 import 'package:todaydo_app/screens/tasks_screen.dart';
 
-import '../../Shared/shared_preferences.dart';
-import '../../models/user.dart';
-
-
+import '../Shared/shared_preferences.dart';
+import '../firebase/firebase_controller.dart';
+import '../models/user.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -16,6 +16,11 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final _prefs =  SharedPreferences.getInstance();
+  Future<void>  _incrementCounter() async{
+    final SharedPreferences pref =await _prefs;
+    pref.setBool('launch', true);
+  }
   late TextEditingController _textEmailEditingController;
   late TextEditingController _textPasswordEditingController;
  // late TextEditingController _textNameEditingController;
@@ -24,6 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   void initState() {
+    super.initState();
     _textEmailEditingController = TextEditingController();
     _textPasswordEditingController = TextEditingController();
   //  _textNameEditingController = TextEditingController();
@@ -31,6 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   void dispose() {
+    super.dispose();
     _textEmailEditingController.dispose();
     _textPasswordEditingController.dispose();
  //   _textNameEditingController.dispose();
@@ -90,77 +97,25 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  void Login() {
-    if (check()) {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => TasksScreen(),
-      ));    }
-  }
 
-  bool check() {
-    if (_textEmailEditingController.text.isNotEmpty &&
-        _textPasswordEditingController.text.isNotEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        content: Text('Login Success'),
-        duration: Duration(
-          seconds: 2,
-        ),
-      ));
-      return true;
-    }
 
-    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-      content: Text('Enter Email && Password'),
-      duration: Duration(
-        seconds: 2,
-      ),
-      backgroundColor: Colors.red,
-    ));
-    return false;
-  }
 
-  void checkError() {
-    setState(() {
-      _emailError =
-          _textEmailEditingController.text.isEmpty ? 'Enter Email' : null;
-      _passwordError =
-          _textPasswordEditingController.text.isEmpty ? 'Enter Password' : null;
-    });
-  }
-
-  // void login() async{
-  // await  SharedPref().saveData(user: user());
-  // }
-  Future<void> login() async {
-    if (checkData()) {
-      await save();
-    }
-  }
-
-  Future<void> save() async {
+  Future<void> login()async {
     await SharedPref().saveData(user: user());
-    ScaffoldMessenger.of(context)
-        .showSnackBar(const SnackBar(content: Text('Login Sucsess')));
-    Navigator.of(context).pushReplacement(MaterialPageRoute(
-      builder: (context) => TasksScreen(),
-    ));  }
-
-  bool checkData() {
-    if (
-  //  _textNameEditingController.text.isNotEmpty &&
-        _textEmailEditingController.text.isNotEmpty &&
-        _textPasswordEditingController.text.isNotEmpty) {
-      return true;
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Login Sucsess')));
+    bool loggeIn = await FBController().login(email: _textEmailEditingController.text, password: _textPasswordEditingController.text);
+    if(loggeIn){
+      _incrementCounter();
+      Navigator.pushReplacementNamed(context, '/home_screen');
     }
-    return false;
   }
-
-  User user() {
-    User user = User();
+  User user(){
+    User user =User();
     user.email = _textEmailEditingController.text;
     user.password = _textPasswordEditingController.text;
- //   user.name = _textNameEditingController.text;
-
+    //   user.name = _textNameEditingController.text;
     return user;
   }
 }
+
+
