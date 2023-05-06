@@ -35,7 +35,7 @@ class MyWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '${Provider.of<TaskData>(context).tasks.length} Tasks',
+              '${Provider.of<TaskData>(context).taskWidgets.length} Tasks',
               style: const TextStyle(
                 color: Colors.white,
                 fontSize: 18,
@@ -52,7 +52,7 @@ class MyWidget extends StatelessWidget {
                     Radius.circular(20),
                   ),
                 ),
-                child: const TasksList(),
+                child:  StreamWidget(),
               ),
             ),
           ],

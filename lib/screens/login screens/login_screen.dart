@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:todaydo_app/screens/register_screen.dart';
-import 'package:todaydo_app/screens/tasks_screen.dart';
-
+import 'package:todaydo_app/screens/login%20screens/register_screen.dart';
 import '../../Shared/shared_preferences.dart';
 import '../../firebase/firebase_controller.dart';
 import '../../models/user.dart';

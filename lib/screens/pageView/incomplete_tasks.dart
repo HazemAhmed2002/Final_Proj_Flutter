@@ -25,7 +25,7 @@ class _InCompleteTasksScreenState extends State<InCompleteTasksScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            '${Provider.of<TaskData>(context).tasks.length} Tasks',
+            '${Provider.of<TaskData>(context).taskWidgets.length} Tasks',
             style: const TextStyle(
               color: Colors.white,
               fontSize: 18,
@@ -45,18 +45,18 @@ class _InCompleteTasksScreenState extends State<InCompleteTasksScreen> {
               child: Consumer<TaskData>(
                 builder: (context, taskData, child) {
                   return ListView.builder(
-                    itemCount: taskData.tasks
+                    itemCount: taskData.taskWidgets
                         .where((element) => !element.isDone)
                         .length,
                     itemBuilder: (context, index) {
                       return TasksTile(
-                        isChecked: taskData.tasks[index].isDone,
-                        taskTile: taskData.tasks[index].name,
+                        isChecked: taskData.taskWidgets[index].isDone,
+                        taskTile: taskData.taskWidgets[index].name,
                         checkboxChange: (newValue) {
-                          taskData.updateTask(taskData.tasks[index]);
+                          taskData.updateTask(taskData.taskWidgets[index]);
                         },
                         listTileDelete: () {
-                          taskData.deleteTask(taskData.tasks[index]);
+                          taskData.deleteTask(taskData.taskWidgets[index]);
                         },
                       );
                     },
