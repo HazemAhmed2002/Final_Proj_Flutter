@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:todaydo_app/models/task_data.dart';
 import 'package:provider/provider.dart';
 import 'package:todaydo_app/screens/tasks_screen.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
+
 
 
 void main() async{
