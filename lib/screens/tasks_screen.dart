@@ -64,51 +64,53 @@ class _TasksScreenState extends State<TasksScreen> {
       ),
       drawer: Drawer(
         backgroundColor: Colors.teal[400],
-        child: Column(
-          children: [
-            UserAccountsDrawerHeader(
-                decoration: BoxDecoration(
-                  color: Colors.teal[900],
-                ),
-                currentAccountPicture: const CircleAvatar(
-                  backgroundImage: AssetImage('images/hazem.jpg'),
-                ),
-                accountName: const Text("Hazem"),
-                accountEmail: const Text("ahmedhazeml734@gmail.com")),
-            ListTileDrawer(
-                nav: () {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (context) => TasksScreen(),
-                  ));
-                },
-                name: "Profile",
-                icon: const Icon(Icons.person)),
-            ListTileDrawer(
-                nav: () {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (context) => TasksScreen(),
-                  ));
-                },
-                name: "Home Page",
-                icon: const Icon(Icons.home)),
-            ListTileDrawer(
-                nav: () {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (context) => const SettingsScreen(),
-                  ));
-                },
-                name: "Settings",
-                icon: const Icon(Icons.settings)),
-            ListTileDrawer(
-                nav: () {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (context) => WelcomeScreen(),
-                  ));
-                },
-                name: "LogOut",
-                icon: const Icon(Icons.logout)),
-          ],
-        ),
+        child: ListView(children: [
+          Column(
+            children: [
+              UserAccountsDrawerHeader(
+                  decoration: BoxDecoration(
+                    color: Colors.teal[900],
+                  ),
+                  currentAccountPicture: const CircleAvatar(
+                    backgroundImage: AssetImage('images/hazem.jpg'),
+                  ),
+                  accountName: const Text("Hazem"),
+                  accountEmail: const Text("ahmedhazeml734@gmail.com")),
+              ListTileDrawer(
+                  nav: () {
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) => TasksScreen(),
+                    ));
+                  },
+                  name: "Profile",
+                  icon: const Icon(Icons.person)),
+              ListTileDrawer(
+                  nav: () {
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) => TasksScreen(),
+                    ));
+                  },
+                  name: "Home Page",
+                  icon: const Icon(Icons.home)),
+              ListTileDrawer(
+                  nav: () {
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) => const SettingsScreen(),
+                    ));
+                  },
+                  name: "Settings",
+                  icon: const Icon(Icons.settings)),
+              ListTileDrawer(
+                  nav: () {
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) => WelcomeScreen(),
+                    ));
+                  },
+                  name: "LogOut",
+                  icon: const Icon(Icons.logout)),
+            ],
+          ),
+        ]),
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.teal[400],

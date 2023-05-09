@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:todaydo_app/main.dart';
 import 'package:todaydo_app/screens/tasks_screen.dart';
 
 import '../../widgets/my_button.dart';
@@ -139,7 +140,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   try {
                     final newUser = await _auth.createUserWithEmailAndPassword(
                         email: email, password: password);
-                    Navigator.pushNamed(context, TasksScreen.screenRoute);
+                    Navigator.pushNamed(context, ResponsiveDesign.screenRoute);
                     setState(() {
                       showSpinner = false;
                     });

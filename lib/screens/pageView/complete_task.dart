@@ -8,6 +8,8 @@ import '../../widgets/task_tile.dart';
 import '../add_task_screen.dart';
 
 class CompleteTaskScreen extends StatefulWidget {
+    static const String screenRoute = 'complete_task_screen';
+
   const CompleteTaskScreen({super.key});
 
   @override

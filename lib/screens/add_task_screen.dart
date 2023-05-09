@@ -5,7 +5,7 @@ import '../models/task_data.dart';
 class AddTasksScreen extends StatelessWidget {
   final Function addTaskCallback;
 
-   AddTasksScreen(this.addTaskCallback, {super.key});
+   const AddTasksScreen(this.addTaskCallback, {super.key});
 
   @override
   Widget build(BuildContext context) {

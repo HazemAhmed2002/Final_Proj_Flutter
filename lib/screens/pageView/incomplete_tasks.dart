@@ -5,6 +5,8 @@ import '../../widgets/task_tile.dart';
 import '../add_task_screen.dart';
 
 class InCompleteTasksScreen extends StatefulWidget {
+    static const String screenRoute = 'in_complete_tasks_screen';
+
   const InCompleteTasksScreen({super.key});
 
   @override
