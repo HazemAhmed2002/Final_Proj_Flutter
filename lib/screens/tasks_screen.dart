@@ -1,18 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:todaydo_app/screens/login%20screens/welcome_screen.dart';
 import 'package:todaydo_app/screens/pageView/all_task_screen.dart';
 import 'package:todaydo_app/screens/pageView/complete_task.dart';
 import 'package:todaydo_app/screens/pageView/incomplete_tasks.dart';
 import 'package:todaydo_app/screens/login%20screens/settings_screen.dart';
 import 'package:todaydo_app/widgets/list_tile_drawer.dart';
 import 'add_task_screen.dart';
-import 'login screens/login_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class TasksScreen extends StatefulWidget {
+  static const String screenRoute = 'tasks_screen';
+
   @override
   State<TasksScreen> createState() => _TasksScreenState();
 }
 
 class _TasksScreenState extends State<TasksScreen> {
+  final _auth = FirebaseAuth.instance;
+
+  void getCurrentUser() {
+    try {
+      final user = _auth.currentUser;
+      late User signedInUser;
+
+      @override
+      void initState() {
+        super.initState();
+        getCurrentUser();
+      }
+
+      if (user != null) {
+        signedInUser = user;
+        print(signedInUser.email);
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
+
   int pageIndex = 0;
 
   final List<Widget> _list = [
@@ -50,27 +75,38 @@ class _TasksScreenState extends State<TasksScreen> {
                 ),
                 accountName: const Text("Hazem"),
                 accountEmail: const Text("ahmedhazeml734@gmail.com")),
-            ListTileDrawer(nav: (){
-              Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (context) =>  TasksScreen(),
-              ));
-            }, name: "Profile", icon: const Icon(Icons.person)),
-            ListTileDrawer(nav: (){
-              Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (context) =>  TasksScreen(),
-              ));
-            }, name: "Home Page", icon: const Icon(Icons.home)),
-            ListTileDrawer(nav: (){
-              Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (context) => const SettingsScreen(),
-              ));
-            }, name: "Settings", icon: const Icon(Icons.settings)),
-            ListTileDrawer(nav: (){
-              Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (context) => const LoginScreen(),
-              ));
-            }, name: "LogOut", icon: const Icon(Icons.logout)),
-
+            ListTileDrawer(
+                nav: () {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (context) => TasksScreen(),
+                  ));
+                },
+                name: "Profile",
+                icon: const Icon(Icons.person)),
+            ListTileDrawer(
+                nav: () {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (context) => TasksScreen(),
+                  ));
+                },
+                name: "Home Page",
+                icon: const Icon(Icons.home)),
+            ListTileDrawer(
+                nav: () {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (context) => const SettingsScreen(),
+                  ));
+                },
+                name: "Settings",
+                icon: const Icon(Icons.settings)),
+            ListTileDrawer(
+                nav: () {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (context) => WelcomeScreen(),
+                  ));
+                },
+                name: "LogOut",
+                icon: const Icon(Icons.logout)),
           ],
         ),
       ),
@@ -127,4 +163,3 @@ class _TasksScreenState extends State<TasksScreen> {
     );
   }
 }
-
