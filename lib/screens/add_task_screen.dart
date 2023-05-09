@@ -1,11 +1,9 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../models/task_data.dart';
 
 class AddTasksScreen extends StatelessWidget {
   final Function addTaskCallback;
-  final firestore = FirebaseFirestore.instance;
 
    AddTasksScreen(this.addTaskCallback, {super.key});
 
@@ -29,10 +27,6 @@ class AddTasksScreen extends StatelessWidget {
             onPressed: () {
               Provider.of<TaskData>(context, listen: false)
                   .addTask(newTaskTitle!);
-              firestore.collection('tasks').add({
-                'task': newTaskTitle ,
-                'isDone': 'false' ,
-              });
               Navigator.pop(context);
             },
             style: TextButton.styleFrom(
