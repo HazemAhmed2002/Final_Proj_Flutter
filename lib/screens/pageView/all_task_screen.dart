@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../models/task_data.dart';
-import '../../widgets/tasks_list.dart';
 
 class AllTasksScreen extends StatefulWidget {
-    static const String screenRoute = 'all_tasks_screen';
+  static const String screenRoute = 'all_tasks_screen';
 
   const AllTasksScreen({super.key});
 
@@ -54,7 +53,7 @@ class MyWidget extends StatelessWidget {
                     Radius.circular(20),
                   ),
                 ),
-                child:  StreamWidget(),
+                child: StreamWidget(),
               ),
             ),
           ],
