@@ -79,31 +79,37 @@ class _SmallScreenState extends State<SmallScreen> {
                   accountName: const Text("Hazem"),
                   accountEmail: const Text("ahmedhazeml734@gmail.com")),
               ListTileDrawer(
+                name: "Home Page",
+                icon: const Icon(Icons.home),
+                subtitle: "Go to the Home page",
                 nav: () {
                   Navigator.of(context).pushNamed(ResponsiveDesign.screenRoute);
                 },
-                name: "Home Page",
-                icon: const Icon(Icons.home),
               ),
               ListTileDrawer(
+                name: "Profile",
+                subtitle: "Go to the Profile page",
+                icon: const Icon(Icons.person),
                 nav: () {
                   Navigator.of(context).pushNamed(ProfileScreen.screenRoute);
                 },
-                name: "Profile",
-                icon: const Icon(Icons.person),
               ),
               ListTileDrawer(
-                  nav: () {
-                    Navigator.of(context).pushNamed(SettingsScreen.screenRoute);
-                  },
-                  name: "Settings",
-                  icon: const Icon(Icons.settings)),
+                name: "Settings",
+                subtitle: "Go to the Settings page",
+                icon: const Icon(Icons.settings),
+                nav: () {
+                  Navigator.of(context).pushNamed(SettingsScreen.screenRoute);
+                },
+              ),
               ListTileDrawer(
-                  nav: () {
-                    Navigator.of(context).pushNamed(WelcomeScreen.screenRoute);
-                  },
-                  name: "LogOut",
-                  icon: const Icon(Icons.logout)),
+                name: "LogOut",
+                subtitle: "Log out of the app",
+                icon: const Icon(Icons.logout),
+                nav: () {
+                  Navigator.of(context).pushNamed(WelcomeScreen.screenRoute);
+                },
+              ),
             ],
           ),
         ]),

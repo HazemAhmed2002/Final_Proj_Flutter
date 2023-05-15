@@ -26,16 +26,24 @@ class TaskData extends ChangeNotifier {
   }
 }
 
-class StreamWidget extends StatelessWidget {
+class StreamWidget extends StatefulWidget {
   StreamWidget({
     Key? key,
   }) : super(key: key);
+
+  @override
+  State<StreamWidget> createState() => _StreamWidgetState();
+}
+
+class _StreamWidgetState extends State<StreamWidget> {
   TaskData taskData = TaskData();
+
   List<Task> taskWidgets = [
     Task(name: 'go shopping'),
     Task(name: 'buy a gift'),
     Task(name: 'repair the car'),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Consumer<TaskData>(builder: (context, taskData, child) {

@@ -137,6 +137,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   });
 
                   try {
+                    // ignore: unused_local_variable
                     final newUser = await _auth.createUserWithEmailAndPassword(
                         email: email, password: password);
                     Navigator.pushNamed(context, ResponsiveDesign.screenRoute);

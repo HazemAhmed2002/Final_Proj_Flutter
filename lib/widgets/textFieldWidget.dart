@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 
 class TextFieldWidget extends StatelessWidget {
@@ -9,7 +11,7 @@ class TextFieldWidget extends StatelessWidget {
   }) : super(key: key);
   String hint;
   TextInputType tet;
-   TextEditingController? textEditingController;
+  TextEditingController? textEditingController;
 
   @override
   Widget build(BuildContext context) {
@@ -20,20 +22,16 @@ class TextFieldWidget extends StatelessWidget {
       decoration: InputDecoration(
           counterText: '',
           hintText: hint,
-          hintStyle: const TextStyle(fontSize: 20 , ),
+          hintStyle: const TextStyle(
+            fontSize: 20,
+          ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
-            borderSide: const BorderSide(
-                color: Colors.black
-            ),
+            borderSide: const BorderSide(color: Colors.black),
           ),
-          focusedBorder:  OutlineInputBorder(
+          focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
-              borderSide: BorderSide(
-                  color: Colors.limeAccent
-              )
-          )
-      ),
+              borderSide: BorderSide(color: Colors.limeAccent))),
       controller: textEditingController,
     );
   }
