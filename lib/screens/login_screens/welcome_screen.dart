@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:todaydo_app/screens/login_screens/registration_screen.dart';
-import 'package:todaydo_app/screens/tasks_screen.dart';
 import '../../widgets/my_button.dart';
 import 'signin_screen.dart';
 

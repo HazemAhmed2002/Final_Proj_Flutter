@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:todaydo_app/main.dart';
+import 'package:todaydo_app/screens/login_screens/profile_screen.dart';
 import 'package:todaydo_app/screens/login_screens/welcome_screen.dart';
 import 'package:todaydo_app/screens/pageView/all_task_screen.dart';
 import 'package:todaydo_app/screens/pageView/complete_task.dart';
@@ -7,8 +9,6 @@ import 'package:todaydo_app/screens/login_screens/settings_screen.dart';
 import 'package:todaydo_app/widgets/list_tile_drawer.dart';
 import '../add_task_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
-import '../tasks_screen.dart';
 
 class SmallScreen extends StatefulWidget {
   static const String screenRoute = 'tasks_screen';
@@ -79,34 +79,28 @@ class _SmallScreenState extends State<SmallScreen> {
                   accountName: const Text("Hazem"),
                   accountEmail: const Text("ahmedhazeml734@gmail.com")),
               ListTileDrawer(
-                  nav: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => TasksScreen(),
-                    ));
-                  },
-                  name: "Profile",
-                  icon: const Icon(Icons.person)),
+                nav: () {
+                  Navigator.of(context).pushNamed(ResponsiveDesign.screenRoute);
+                },
+                name: "Home Page",
+                icon: const Icon(Icons.home),
+              ),
+              ListTileDrawer(
+                nav: () {
+                  Navigator.of(context).pushNamed(ProfileScreen.screenRoute);
+                },
+                name: "Profile",
+                icon: const Icon(Icons.person),
+              ),
               ListTileDrawer(
                   nav: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => TasksScreen(),
-                    ));
-                  },
-                  name: "Home Page",
-                  icon: const Icon(Icons.home)),
-              ListTileDrawer(
-                  nav: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => const SettingsScreen(),
-                    ));
+                    Navigator.of(context).pushNamed(SettingsScreen.screenRoute);
                   },
                   name: "Settings",
                   icon: const Icon(Icons.settings)),
               ListTileDrawer(
                   nav: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => WelcomeScreen(),
-                    ));
+                    Navigator.of(context).pushNamed(WelcomeScreen.screenRoute);
                   },
                   name: "LogOut",
                   icon: const Icon(Icons.logout)),

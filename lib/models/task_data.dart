@@ -4,7 +4,6 @@ import 'package:todaydo_app/widgets/task_tile.dart';
 import 'task.dart';
 
 class TaskData extends ChangeNotifier {
-
   List<Task> taskWidgets = [
     Task(name: 'go shopping'),
     Task(name: 'buy a gift'),
@@ -27,47 +26,34 @@ class TaskData extends ChangeNotifier {
   }
 }
 
-
-// class TheTask {
-//   final String name;
-//   bool isDone;
-//
-//   TheTask({required this.name, this.isDone = false});
-//
-//   void doneChange() {
-//     isDone = !isDone;
-//   }
-// }
-
 class StreamWidget extends StatelessWidget {
-   StreamWidget({Key? key,}) : super(key: key);
-   TaskData taskData = TaskData();
-   List<Task> taskWidgets = [
-     Task(name: 'go shopping'),
-     Task(name: 'buy a gift'),
-     Task(name: 'repair the car'),
-   ];
-   @override
-   Widget build(BuildContext context) {
-  return Consumer<TaskData>(
-            builder: (context, taskData, child) {
-              return ListView.builder(
-                itemCount: taskData.taskWidgets.length,
-                itemBuilder: (context, index) {
-                  return TasksTile(
-                    isChecked: taskData.taskWidgets[index].isDone,
-                    taskTile: taskData.taskWidgets[index].name,
-                    checkboxChange: (newValue) {
-                      taskData.updateTask(taskData.taskWidgets[index]);
-                    },
-                    listTileDelete: () {
-                      taskData.deleteTask(taskData.taskWidgets[index]);
-                    },
-                  );
-                },
-              );
-
- }
-   );
-   }
+  StreamWidget({
+    Key? key,
+  }) : super(key: key);
+  TaskData taskData = TaskData();
+  List<Task> taskWidgets = [
+    Task(name: 'go shopping'),
+    Task(name: 'buy a gift'),
+    Task(name: 'repair the car'),
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<TaskData>(builder: (context, taskData, child) {
+      return ListView.builder(
+        itemCount: taskData.taskWidgets.length,
+        itemBuilder: (context, index) {
+          return TasksTile(
+            isChecked: taskData.taskWidgets[index].isDone,
+            taskTile: taskData.taskWidgets[index].name,
+            checkboxChange: (newValue) {
+              taskData.updateTask(taskData.taskWidgets[index]);
+            },
+            listTileDelete: () {
+              taskData.deleteTask(taskData.taskWidgets[index]);
+            },
+          );
+        },
+      );
+    });
+  }
 }
