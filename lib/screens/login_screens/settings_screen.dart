@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todaydo_app/main.dart';
+import '../../responsive_design.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);

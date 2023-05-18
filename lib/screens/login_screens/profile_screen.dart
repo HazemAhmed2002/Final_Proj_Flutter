@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:todaydo_app/main.dart';
+
+import '../../responsive_design.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);

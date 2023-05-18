@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:todaydo_app/responsive_design.dart';
 import 'package:todaydo_app/screens/login_screens/profile_screen.dart';
 import 'package:todaydo_app/screens/login_screens/registration_screen.dart';
 import 'package:todaydo_app/screens/login_screens/settings_screen.dart';
@@ -7,7 +8,6 @@ import 'package:todaydo_app/screens/login_screens/welcome_screen.dart';
 import 'package:todaydo_app/screens/pageView/all_task_screen.dart';
 import 'package:todaydo_app/screens/pageView/complete_task.dart';
 import 'package:todaydo_app/screens/pageView/incomplete_tasks.dart';
-import 'main.dart';
 
 Map<String, WidgetBuilder> get routes {
   return {

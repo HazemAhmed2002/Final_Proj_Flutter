@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:todaydo_app/main.dart';
 import 'package:todaydo_app/screens/login_screens/profile_screen.dart';
 import 'package:todaydo_app/screens/login_screens/welcome_screen.dart';
 import 'package:todaydo_app/screens/pageView/all_task_screen.dart';
@@ -7,6 +6,7 @@ import 'package:todaydo_app/screens/pageView/complete_task.dart';
 import 'package:todaydo_app/screens/pageView/incomplete_tasks.dart';
 import 'package:todaydo_app/screens/login_screens/settings_screen.dart';
 import 'package:todaydo_app/widgets/list_tile_drawer.dart';
+import '../../responsive_design.dart';
 import '../add_task_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 

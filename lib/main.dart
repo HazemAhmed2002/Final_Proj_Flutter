@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:todaydo_app/models/task_data.dart';
 import 'package:provider/provider.dart';
+import 'package:todaydo_app/responsive_design.dart';
 import 'package:todaydo_app/routes.dart';
 import 'package:todaydo_app/screens/login_screens/welcome_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:todaydo_app/screens/responsive_design/larg_screens.dart';
-import 'package:todaydo_app/screens/responsive_design/small_screens.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,14 +33,4 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class ResponsiveDesign extends StatelessWidget {
-  static const String screenRoute = 'Responsive_design';
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        body: MediaQuery.of(context).size.width > 500
-            ? LargeScreen()
-            : SmallScreen());
-  }
-}
