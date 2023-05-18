@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import '../models/task_data.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+// ignore: must_be_immutable
 class AddTasksScreen extends StatelessWidget {
   final Function addTaskCallback;
 
