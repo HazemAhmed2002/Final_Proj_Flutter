@@ -3,9 +3,8 @@ import 'package:provider/provider.dart';
 import '../../models/task_data.dart';
 import '../../widgets/task_tile.dart';
 
-
 class InCompleteTasksScreen extends StatefulWidget {
-    static const String screenRoute = 'in_complete_tasks_screen';
+  static const String screenRoute = 'in_complete_tasks_screen';
 
   const InCompleteTasksScreen({super.key});
 
