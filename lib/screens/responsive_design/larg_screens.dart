@@ -5,7 +5,7 @@ import 'package:todaydo_app/screens/pageView/incomplete_tasks.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class LargeScreen extends StatefulWidget {
-  static const String screenRoute = 'tasks_screen';
+  static const String screenRoute = 'large_screen';
 
   @override
   State<LargeScreen> createState() => _LargeScreenState();

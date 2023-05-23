@@ -5,6 +5,7 @@ import 'package:todaydo_app/screens/login_screens/registration_screen.dart';
 import 'package:todaydo_app/screens/login_screens/settings_screen.dart';
 import 'package:todaydo_app/screens/login_screens/signin_screen.dart';
 import 'package:todaydo_app/screens/login_screens/welcome_screen.dart';
+import 'package:todaydo_app/screens/on_boarding_screens/onboarding_screen.dart';
 import 'package:todaydo_app/screens/pageView/all_task_screen.dart';
 import 'package:todaydo_app/screens/pageView/complete_task.dart';
 import 'package:todaydo_app/screens/pageView/incomplete_tasks.dart';
@@ -21,5 +22,6 @@ Map<String, WidgetBuilder> get routes {
     ResponsiveDesign.screenRoute: (context) => ResponsiveDesign(),
     ProfileScreen.screenRoute: (context) => const ProfileScreen(),
     SettingsScreen.screenRoute: (context) => const SettingsScreen(),
+    OnboardingScreen.screenRoute: (context) => const OnboardingScreen(),
   };
 }

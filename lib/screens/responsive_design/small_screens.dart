@@ -11,7 +11,7 @@ import '../add_task_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class SmallScreen extends StatefulWidget {
-  static const String screenRoute = 'tasks_screen';
+  static const String screenRoute = 'small_screen';
 
   @override
   State<SmallScreen> createState() => _SmallScreenState();

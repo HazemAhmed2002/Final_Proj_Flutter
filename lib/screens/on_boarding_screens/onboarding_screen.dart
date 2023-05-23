@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:todaydo_app/on_boarding_screens/size_config.dart';
+import 'package:todaydo_app/screens/login_screens/welcome_screen.dart';
+import 'package:todaydo_app/screens/on_boarding_screens/size_config.dart';
 
 import 'onboarding_contents.dart';
 
 class OnboardingScreen extends StatefulWidget {
+  static const String screenRoute = 'on_boarding_screen';
+
   const OnboardingScreen({Key? key}) : super(key: key);
 
   @override
@@ -60,7 +63,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               child: PageView.builder(
                 physics: const BouncingScrollPhysics(),
                 controller: _controller,
-                onPageChanged: (value) => setState(() => _currentPage = value),
+                onPageChanged: (value) => setState(
+                  () => _currentPage = value,
+                ),
                 itemCount: contents.length,
                 itemBuilder: (context, i) {
                   return Padding(
@@ -117,8 +122,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       ? Padding(
                           padding: const EdgeInsets.all(30),
                           child: ElevatedButton(
-                            onPressed: () {},
-                            child: const Text("START"),
+                            onPressed: () {
+                              Navigator.of(context).pushReplacementNamed(
+                                  WelcomeScreen.screenRoute);
+                            },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.black,
                               shape: RoundedRectangleBorder(
@@ -132,6 +139,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               textStyle:
                                   TextStyle(fontSize: (width <= 550) ? 13 : 17),
                             ),
+                            child: const Text("START"),
                           ),
                         )
                       : Padding(
