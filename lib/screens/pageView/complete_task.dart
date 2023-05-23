@@ -53,13 +53,23 @@ class _CompleteTaskScreenState extends State<CompleteTaskScreen> {
                           .length,
                       itemBuilder: (context, index) {
                         return TasksTile(
-                          isChecked: taskData.taskWidgets.where((element) => element.isDone).toList()[index].isDone,
-                          taskTile: taskData.taskWidgets.where((element) => element.isDone).toList()[index].name,
+                          isChecked: taskData.taskWidgets
+                              .where((element) => element.isDone)
+                              .toList()[index]
+                              .isDone,
+                          taskTile: taskData.taskWidgets
+                              .where((element) => element.isDone)
+                              .toList()[index]
+                              .name,
                           checkboxChange: (newValue) {
-                            taskData.updateTask(taskData.taskWidgets.where((element) => element.isDone).toList()[index]);
+                            taskData.updateTask(taskData.taskWidgets
+                                .where((element) => element.isDone)
+                                .toList()[index]);
                           },
                           listTileDelete: () {
-                            taskData.deleteTask(taskData.taskWidgets.where((element) => element.isDone).toList()[index]);
+                            taskData.deleteTask(taskData.taskWidgets
+                                .where((element) => element.isDone)
+                                .toList()[index]);
                           },
                         );
                       },

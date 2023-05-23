@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todaydo_app/on_boarding_screens/size_config.dart';
 
-
 import 'onboarding_contents.dart';
 
 class OnboardingScreen extends StatefulWidget {
