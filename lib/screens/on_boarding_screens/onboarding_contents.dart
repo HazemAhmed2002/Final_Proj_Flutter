@@ -17,10 +17,9 @@ List<OnboardingContents> contents = [
     desc: "120202481",
   ),
   OnboardingContents(
-    title: "Stay organized with team",
-    image: "images/check-list.png",
-    desc:
-        "But understanding the contributions our colleagues make to our teams and companies.",
+    title: "Hesham H. Rajab",
+    image: "images/hazem.jpg",
+    desc: "120202172",
   ),
   OnboardingContents(
     title: "Get notified when work happens",
