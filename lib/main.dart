@@ -23,7 +23,6 @@ class MyApp extends StatelessWidget {
       create: (context) => TaskData(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        // home: ResponsiveDesign(),
         initialRoute: _auth.currentUser != null
             ? ResponsiveDesign.screenRoute
             : OnboardingScreen.screenRoute,

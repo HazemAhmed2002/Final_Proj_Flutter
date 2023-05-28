@@ -12,18 +12,19 @@ class OnboardingContents {
 
 List<OnboardingContents> contents = [
   OnboardingContents(
-    title: "Hazem A. Lubbad",
-    image: "images/hazem.jpg",
-    desc: "120202481",
+    title: "Track Your work and get the result",
+    image: "images/image2.png",
+    desc: "Remember to keep track of your professional accomplishments.",
   ),
   OnboardingContents(
-    title: "Hesham H. Rajab",
-    image: "images/hazem.jpg",
-    desc: "120202172",
+    title: "Stay organized with team",
+    image: "images/image3.jpg",
+    desc:
+        "But understanding the contributions our colleagues make to our teams and companies.",
   ),
   OnboardingContents(
     title: "Get notified when work happens",
-    image: "images/check-list.png",
+    image: "images/image1.png",
     desc:
         "Take control of notifications, collaborate live or on your own time.",
   ),
