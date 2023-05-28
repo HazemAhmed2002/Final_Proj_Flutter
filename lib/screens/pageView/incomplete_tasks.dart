@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todaydo_app/controllers/db_controller.dart';
-import '../../models/task_data.dart';
 import '../../widgets/task_tile.dart';
 
 class InCompleteTasksScreen extends StatefulWidget {
