@@ -41,7 +41,6 @@ class DbHelper {
   }
 
   updateTask(Task task) async {
-    await database.update('tasks', task.toMapUpdata(),
-        where: 'id=${task.id}');
+    await database.update('tasks', task.toMapUpdata(), where: 'id=${task.id}');
   }
 }

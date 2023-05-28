@@ -83,29 +83,27 @@ class StreamWidgett extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<DbController>(
-        builder: (context, controller, x) {
-          return controller.isLoading?
-          const SizedBox():
-          controller.tasks.isEmpty?
-          const SizedBox():
-          ListView.builder(
-            itemCount: controller.tasks.length,
-            itemBuilder: (context, index) {
-              return TasksTile(
-                isChecked: controller.tasks[index].isDone!,
-                taskTile: controller.tasks[index].name!,
-                checkboxChange: (newValue) {
-                  controller.updateTask(controller.tasks[index]);
-                },
-                listTileDelete: () {
-                  controller.deleteTask(controller.tasks[index] as int);
-                },
-              );
-            },
-          );
-        },
-      );
-
+      builder: (context, controller, x) {
+        return controller.isLoading
+            ? const SizedBox()
+            : controller.tasks.isEmpty
+                ? const SizedBox()
+                : ListView.builder(
+                    itemCount: controller.tasks.length,
+                    itemBuilder: (context, index) {
+                      return TasksTile(
+                        isChecked: controller.tasks[index].isDone!,
+                        taskTile: controller.tasks[index].name!,
+                        checkboxChange: (newValue) {
+                          controller.updateTask(controller.tasks[index]);
+                        },
+                        listTileDelete: () {
+                          controller.deleteTask(controller.tasks[index] as int);
+                        },
+                      );
+                    },
+                  );
+      },
+    );
   }
 }
-

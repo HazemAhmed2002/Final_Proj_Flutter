@@ -2,11 +2,7 @@ class Task {
   int? id;
   String? name;
   bool? isDone;
-  Task({
-    this.id,
-    required this.name,
-    this.isDone = false
-  });
+  Task({this.id, required this.name, this.isDone = false});
   factory Task.adam(bool x) {
     if (x) {
       return Task(isDone: false, name: "adam", id: 1);
@@ -22,6 +18,7 @@ class Task {
   toMap() {
     return {"name": name, "isDone": isDone ?? true ? 1 : 0};
   }
+
   toMapUpdata() {
     return {"isDone": isDone ?? true ? 1 : 0};
   }
