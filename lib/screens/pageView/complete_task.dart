@@ -65,7 +65,7 @@ class _CompleteTaskScreenState extends State<CompleteTaskScreen> {
                           checkboxChange: (newValue) {
                             taskData.updateTask(taskData.tasks
                                 .where((element) => element.isDone!)
-                                .toList()[index] as int);
+                                .toList()[index] );
                           },
                           listTileDelete: () {
                             taskData.deleteTask(taskData.tasks

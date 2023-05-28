@@ -95,7 +95,7 @@ class StreamWidgett extends StatelessWidget {
                 isChecked: controller.tasks[index].isDone!,
                 taskTile: controller.tasks[index].name!,
                 checkboxChange: (newValue) {
-                  controller.updateTask(controller.tasks[index] as int);
+                  controller.updateTask(controller.tasks[index]);
                 },
                 listTileDelete: () {
                   controller.deleteTask(controller.tasks[index] as int);

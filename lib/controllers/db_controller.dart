@@ -4,7 +4,7 @@ import 'package:todaydo_app/models/task.dart';
 import '../models/db_helper.dart';
 
 class DbController extends ChangeNotifier {
-  Task task  =Task(name: '');
+  //Task task  =Task(name: '');
   DbController() {
     getAllTasks();
   }
@@ -30,7 +30,8 @@ class DbController extends ChangeNotifier {
     getAllTasks();
   }
 
-   updateTask(int id ) async {
+   updateTask(Task task) async {
+     await DbHelper.dbHelper.updateTask(task);
      task.doneChange();
      notifyListeners();
 
