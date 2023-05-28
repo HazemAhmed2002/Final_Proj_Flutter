@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todaydo_app/widgets/task_tile.dart';
+import '../controllers/db_controller.dart';
 import 'task.dart';
 
 class TaskData extends ChangeNotifier {
@@ -32,10 +33,10 @@ class StreamWidget extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<StreamWidget> createState() => _StreamWidgetState();
+  State<StreamWidget> createState() => StreamWidgetState();
 }
 
-class _StreamWidgetState extends State<StreamWidget> {
+class StreamWidgetState extends State<StreamWidget> {
   TaskData taskData = TaskData();
 
   List<Task> taskWidgets = [
@@ -51,8 +52,8 @@ class _StreamWidgetState extends State<StreamWidget> {
         itemCount: taskData.taskWidgets.length,
         itemBuilder: (context, index) {
           return TasksTile(
-            isChecked: taskData.taskWidgets[index].isDone,
-            taskTile: taskData.taskWidgets[index].name,
+            isChecked: taskData.taskWidgets[index].isDone!,
+            taskTile: taskData.taskWidgets[index].name!,
             checkboxChange: (newValue) {
               taskData.updateTask(taskData.taskWidgets[index]);
             },
@@ -65,3 +66,46 @@ class _StreamWidgetState extends State<StreamWidget> {
     });
   }
 }
+
+class StreamWidgett extends StatelessWidget {
+  StreamWidgett({
+    Key? key,
+  }) : super(key: key);
+
+  TaskData taskData = TaskData();
+
+  List<Task> taskWidgets = [
+    Task(name: 'go shopping'),
+    Task(name: 'buy a gift'),
+    Task(name: 'repair the car'),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<DbController>(
+        builder: (context, controller, x) {
+          return controller.isLoading?
+          const SizedBox():
+          controller.tasks.isEmpty?
+          const SizedBox():
+          ListView.builder(
+            itemCount: controller.tasks.length,
+            itemBuilder: (context, index) {
+              return TasksTile(
+                isChecked: controller.tasks[index].isDone!,
+                taskTile: controller.tasks[index].name!,
+                checkboxChange: (newValue) {
+                  controller.updateTask(controller.tasks[index] as int);
+                },
+                listTileDelete: () {
+                  controller.deleteTask(controller.tasks[index] as int);
+                },
+              );
+            },
+          );
+        },
+      );
+
+  }
+}
+

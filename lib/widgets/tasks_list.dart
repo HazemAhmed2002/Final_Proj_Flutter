@@ -14,8 +14,8 @@ class TasksList extends StatelessWidget {
           itemCount: taskData.taskWidgets.length,
           itemBuilder: (context, index) {
             return TasksTile(
-              isChecked: taskData.taskWidgets[index].isDone,
-              taskTile: taskData.taskWidgets[index].name,
+              isChecked: taskData.taskWidgets[index].isDone!,
+              taskTile: taskData.taskWidgets[index].name!,
               checkboxChange: (newValue) {
                 taskData.updateTask(taskData.taskWidgets[index]);
               },

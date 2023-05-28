@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todaydo_app/controllers/db_controller.dart';
 import '../../models/task_data.dart';
 import '../../widgets/task_tile.dart';
 
@@ -26,7 +27,7 @@ class _InCompleteTasksScreenState extends State<InCompleteTasksScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            '${Provider.of<TaskData>(context).taskWidgets.length} Tasks',
+            '${Provider.of<DbController>(context).tasks.length} Tasks',
             style: const TextStyle(
               color: Colors.white,
               fontSize: 18,
@@ -43,31 +44,31 @@ class _InCompleteTasksScreenState extends State<InCompleteTasksScreen> {
                   Radius.circular(20),
                 ),
               ),
-              child: Consumer<TaskData>(
+              child: Consumer<DbController>(
                 builder: (context, taskData, child) {
                   return ListView.builder(
-                    itemCount: taskData.taskWidgets
-                        .where((element) => !element.isDone)
+                    itemCount: taskData.tasks
+                        .where((element) => !element.isDone!)
                         .length,
                     itemBuilder: (context, index) {
                       return TasksTile(
-                        isChecked: taskData.taskWidgets
-                            .where((element) => !element.isDone)
+                        isChecked: taskData.tasks
+                            .where((element) => !element.isDone!)
                             .toList()[index]
-                            .isDone,
-                        taskTile: taskData.taskWidgets
-                            .where((element) => !element.isDone)
+                            .isDone!,
+                        taskTile: taskData.tasks
+                            .where((element) => !element.isDone!)
                             .toList()[index]
-                            .name,
+                            .name!,
                         checkboxChange: (newValue) {
-                          taskData.updateTask(taskData.taskWidgets
-                              .where((element) => !element.isDone)
-                              .toList()[index]);
+                          taskData.updateTask(taskData.tasks
+                              .where((element) => !element.isDone!)
+                              .toList()[index] as int);
                         },
                         listTileDelete: () {
-                          taskData.deleteTask(taskData.taskWidgets
-                              .where((element) => !element.isDone)
-                              .toList()[index]);
+                          taskData.deleteTask(taskData.tasks
+                              .where((element) => !element.isDone!)
+                              .toList()[index] as int);
                         },
                       );
                     },

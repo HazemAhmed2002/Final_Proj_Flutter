@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todaydo_app/controllers/db_controller.dart';
 import '../../models/task_data.dart';
 
 class AllTasksScreen extends StatefulWidget {
@@ -26,25 +27,13 @@ class MyWidget extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.teal[400],
       body: Container(
-        padding: const EdgeInsets.only(
-          top: 20,
-          left: 15,
-          right: 15,
-          bottom: 45,
-        ),
+        padding: const EdgeInsets.only(top: 20, left: 15, right: 15, bottom: 45,),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              '${Provider.of<TaskData>(context).taskWidgets.length} Tasks',
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
+            Text('${Provider.of<DbController>(context).tasks.length} Tasks',
+              style: const TextStyle(color: Colors.white, fontSize: 18,),),
+            const SizedBox(height: 20,),
             Expanded(
               child: Container(
                 decoration: const BoxDecoration(
@@ -53,7 +42,7 @@ class MyWidget extends StatelessWidget {
                     Radius.circular(20),
                   ),
                 ),
-                child: StreamWidget(),
+                child: StreamWidgett(),
               ),
             ),
           ],
@@ -62,3 +51,5 @@ class MyWidget extends StatelessWidget {
     );
   }
 }
+
+

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../controllers/db_controller.dart';
 import '../models/task_data.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -31,6 +32,7 @@ class AddTasksScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DbController dbController = DbController() ;
     String? newTaskTitle;
     return Container(
       padding: const EdgeInsets.all(30),
@@ -60,13 +62,10 @@ class AddTasksScreen extends StatelessWidget {
           TextButton(
             onPressed: () {
               tasksSreams();
-              _firestore.collection('tasks').add({
-                'name': name,
-                'isDone': isDone,
-              });
-
-              Provider.of<TaskData>(context, listen: false)
-                  .addTask(newTaskTitle!);
+              _firestore.collection('tasks').add({'name': name, 'isDone': isDone,});
+              // Provider.of<TaskData>(context, listen: false)
+              //     .addTask(newTaskTitle!);
+              dbController.insertNewTask(name);
               Navigator.pop(context);
             },
             style: TextButton.styleFrom(
