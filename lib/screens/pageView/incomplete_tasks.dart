@@ -62,7 +62,7 @@ class _InCompleteTasksScreenState extends State<InCompleteTasksScreen> {
                         checkboxChange: (newValue) {
                           taskData.updateTask(taskData.tasks
                               .where((element) => !element.isDone!)
-                              .toList()[index] );
+                              .toList()[index]);
                         },
                         listTileDelete: () {
                           taskData.deleteTask(taskData.tasks

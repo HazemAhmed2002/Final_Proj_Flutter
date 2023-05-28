@@ -25,17 +25,19 @@ class DbController extends ChangeNotifier {
   TextEditingController gpaController = TextEditingController();
   bool isDone = false;
   insertNewTask(String? name) async {
-    Task task = Task(name: name, isDone: isDone,);
+    Task task = Task(
+      name: name,
+      isDone: isDone,
+    );
     await DbHelper.dbHelper.insertNewTask(task);
     getAllTasks();
   }
 
-   updateTask(Task task) async {
-     await DbHelper.dbHelper.updateTask(task);
-     task.doneChange();
-     notifyListeners();
-
-   }
+  updateTask(Task task) async {
+    await DbHelper.dbHelper.updateTask(task);
+    task.doneChange();
+    notifyListeners();
+  }
 
   deleteTask(int id) async {
     await DbHelper.dbHelper.deleteTask(id);

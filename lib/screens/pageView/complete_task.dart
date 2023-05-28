@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'package:provider/provider.dart';
 import 'package:todaydo_app/controllers/db_controller.dart';
-
-import '../../models/task_data.dart';
 import '../../widgets/task_tile.dart';
 
 class CompleteTaskScreen extends StatefulWidget {
@@ -65,7 +62,7 @@ class _CompleteTaskScreenState extends State<CompleteTaskScreen> {
                           checkboxChange: (newValue) {
                             taskData.updateTask(taskData.tasks
                                 .where((element) => element.isDone!)
-                                .toList()[index] );
+                                .toList()[index]);
                           },
                           listTileDelete: () {
                             taskData.deleteTask(taskData.tasks
